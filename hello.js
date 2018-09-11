@@ -341,6 +341,4 @@ app.put('/guardarPuntaje', (req, res) => {
     });
 });
 
-console.log("Servidor iniciado");
-    // escuchar
-    app.listen(5000);
+app.listen(process.env.PORT || 5000, function(){console.log("servidor activo");});
