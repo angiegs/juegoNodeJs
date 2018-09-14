@@ -4,6 +4,8 @@ var http     = require('http'),
 
 const pg    = require('pg');//postgres
 pg.defaults.ssl = true;
+//const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/juego_rompecabezas';
+//var conString = "postgres://postgres:postgres@localhost:5432/juego_rompecabezas";
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/d9i9cnk1d2l468';
 var conString = "postgres://xeafiadthnrwcs:1f5f20e7a9968d6e83beec5289dcfa6f65b883675e7815a746cabdfe5a4f4eb9@ec2-54-227-244-12.compute-1.amazonaws.com:5432/d9i9cnk1d2l468";
 //var conString = "postgres://ouotpxpfgzvdif:14f8728c627f11f8a487cdf5a21b6625efcf196a70f03529ebacd6aa9468c80e@ec2-54-163-249-237.compute-1.amazonaws.com:5432/df2rtm1mo3h4vl";
@@ -36,6 +38,18 @@ app.get('/listarUsuarios', (req, res, next) => {
             return res.json(result.rows);
             
         }); 
+        
+              var xIni;
+      var yIni;
+      var canvas = document.getElementById('objeto');
+      canvas.addEventListener('touchstart', function(e){
+          if (e.targetTouches.length == 1) { 
+       var touch = e.targetTouches[0]; 
+              alert("Usuario Creado");
+       xIni = touch.pageX;
+       yIni = touch.pageY;
+    }
+      }, false);
     });
 });
 
